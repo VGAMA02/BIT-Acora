@@ -1,6 +1,6 @@
 .navbar{
   margin: .5rem;  
-
+  min-width: 320px; /* Dimension mas chica en celulares */
 }
 .navbarstyle{
     display: flex;
