@@ -5,6 +5,7 @@ import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { HeaderComponent } from '../../components/header/header.component';
 import interactionPlugin from '@fullcalendar/interaction';
+
 @Component({
   selector: 'app-calendar',
   imports: [CommonModule,HeaderComponent, FullCalendarModule],

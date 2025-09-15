@@ -1,1 +1,26 @@
-<p>register works!</p>
+
+<div class="header--container">
+    <h2>Crear cuenta</h2>
+</div>
+
+
+<div class="card  form--container">  
+    <form class="">
+        <input class="form-control" type="text" name="nombre" placeholder="nombre" />
+        <input class="form-control" type="text" name="apellido" placeholder="apellido" />
+        <input class="form-control" type="text" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+        <input class="form-control" type="password" name="password" placeholder="password" />
+
+
+
+        <div class="buton--container">
+            <input class="submitboton" type="submit" name="submit" value="registrarse" />
+        </div>
+        
+    </form>
+</div>
+
+<div class="register--section">
+    <p>Ya tienes cuenta?</p>
+    <a class="" routerLink="/login">Ir a login</a>
+</div>
