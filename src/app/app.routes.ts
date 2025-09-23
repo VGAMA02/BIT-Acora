@@ -3,7 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
-
+import { SaveActivityComponent } from './pages/save-activity/save-activity.component';
 export const routes: Routes = [    {
         path:'',
         redirectTo:'home',
@@ -24,6 +24,10 @@ export const routes: Routes = [    {
     {
         path:'login',
         component: LoginComponent
+    },
+    {
+        path:'saveActivity/:date',
+        component: SaveActivityComponent
     },
 
 

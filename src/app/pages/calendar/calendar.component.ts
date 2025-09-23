@@ -5,15 +5,19 @@ import { CalendarOptions } from '@fullcalendar/core'; // useful for typechecking
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { HeaderComponent } from '../../components/header/header.component';
 import interactionPlugin from '@fullcalendar/interaction';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-calendar',
-  imports: [CommonModule,HeaderComponent, FullCalendarModule],
+  imports: [CommonModule,HeaderComponent,FullCalendarModule],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss'
 })
 export class CalendarComponent {
+  constructor(private router: Router) {}
+  selectedDate: string | null = null;
 
+  
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
@@ -21,11 +25,12 @@ export class CalendarComponent {
     events: [
       { title: 'event 1', date: '2025-09-01' },
       { title: 'event 2', date: '2025-09-01' }
-    ]
+    ],
+   
   };
 
   handleDateClick(arg:any) {
-    alert('date click! ' + arg.dateStr)
+    this.router.navigate(['/saveActivity', arg.dateStr]);
   }
 
 }

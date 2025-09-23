@@ -1,0 +1,53 @@
+@mixin fluid-image {
+  display: block;        // evita pequeños gaps en inline
+  max-width: 70%;       // nunca más ancha que su contenedor
+  height: auto;          // mantiene la relación de aspecto
+  image-rendering: optimizeQuality;
+}
+
+.tareas--section-container{
+    min-width: 320px; /* Dimension mas chica en celulares */
+    margin: .5rem;  
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px ;
+    border: 1px solid #9e9999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.16);
+   
+  }
+.tareas--section-container h2{
+    padding-top: 20px;
+    text-align: center;
+    font-family: "Inter",sans-serif;
+}
+.tareas--section-boxes{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    scroll-behavior: auto;
+    max-height: 600px;
+}
+.tareas--article{
+    max-width: 400px;
+    margin: 15px auto; 
+    padding: 15px;
+    background-color: var(--warm-black);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.16);
+   
+  }
+.avance--section-container{
+    margin-top: 20px;
+    margin: .5rem;  
+    min-width: 320px; /* Dimension mas chica en celulares */
+    border: 1px solid #9e9999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.16);
+}
+.avance--section-container h2{
+    padding-top: 20px;
+    text-align: center;
+    font-family: "Inter",sans-serif;
+}
+.avance--section-container img{
+    @include fluid-image;
+}

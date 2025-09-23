@@ -1,1 +1,39 @@
-<p>save-activity works!</p>
+
+
+<section>
+    <div class="title--container">
+        <h2>Registrar actividad</h2>
+    </div>
+   
+
+    <div class="card  form--container">  
+        <form class="">
+            <label class="labelForm" for="nombre">Fecha de nacimiento</label>
+            <input class="form-control formInput" type="text" name="nombre" placeholder="nombre" required />
+
+            <label class="labelForm" for="nombre">Descripcion</label>
+            <textarea name="descripcion" placeholder="Escriba aqui la descripcion de la actividad" class="form-control formInput"></textarea>
+
+            <label class="labelForm" for="nombre">Porcentaje de avance</label>
+            <input class="form-control formInput" type="number" name="avance" placeholder="Numero de porcentaje si es que tiene" required/>
+
+            <label class="labelForm" for="nombre">Fecha de fin (si aplica)</label>
+            <input class="form-control formInput" type="date" id="fechafin" name="fechafin" required>
+
+            <div class="buton--container">
+                <input class="submitboton" type="submit" name="submit" value="Guardar" />
+            </div>
+
+
+            
+        </form>
+        <div class="buton--container">
+            <button class="submitboton" (click)="regresar()">Regresar</button>
+        </div>
+    </div>
+</section>
+    <p>Fecha Inicio: {{ fechaInicio | date:'shortDate' }}</p>
+
+
+
+

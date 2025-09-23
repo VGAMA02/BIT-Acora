@@ -1,0 +1,42 @@
+
+.title--container{
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #000000;
+    min-height: 55px;
+    color: var(--texto-primario);
+    padding-top: 7px;
+}
+.form--container{
+    margin-top: 50px;
+    width: 85%;
+    margin: 0 auto;
+    box-shadow: 0px 2px 5px 0px #000000;
+    min-width: 322px;
+    margin-bottom: 50px;
+}
+.formInput{
+    margin-left: 3px;
+    width: 99%;
+    margin-bottom: 10px;
+}
+
+.labelForm{
+    margin-left: 5px;
+    padding-top: 7px;
+}
+.submitboton{
+    width: 50%; 
+}
+.buton--container{
+    justify-content: space-between;
+    margin-left: 35%;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.submitboton:hover{
+    transition: all 0.3s ease; /* duración y tipo de animación */
+    box-shadow: 0px 2px 5px 0px #000000;
+    background-color: var(--color-principal);
+    color: antiquewhite;
+}

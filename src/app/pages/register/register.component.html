@@ -3,15 +3,17 @@
     <h2>Crear cuenta</h2>
 </div>
 
-
+<h3>Inserte sus datos</h3>
 <div class="card  form--container">  
+    
     <form class="">
-        <input class="form-control" type="text" name="nombre" placeholder="nombre" />
+        <input class="form-control" type="text" name="nombre" placeholder="nombre" required/>
         <input class="form-control" type="text" name="apellido" placeholder="apellido" />
-        <input class="form-control" type="text" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
-        <input class="form-control" type="password" name="password" placeholder="password" />
-        <div class="fielset-genero">
-            <label class="radio-btn">
+        <input class="form-control" type="text" name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+        <input class="form-control" type="password" name="password" placeholder="password" required />
+         <input class="form-control" type="date" id="birthdate" name="birthdate" required>
+        <div class="fielset-genero" >
+            <label class="radio-btn" >
                 <input type="radio" name="genero" value="hombre" required>
                 <span class="btn-span">Hombre</span>
             </label>
@@ -27,6 +29,8 @@
             </label>
         </div>
 
+
+       
 
         <div class="buton--container">
             <input class="submitboton" type="submit" name="submit" value="registrarse" />
