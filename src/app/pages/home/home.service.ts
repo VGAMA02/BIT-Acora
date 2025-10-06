@@ -17,4 +17,17 @@ export class HomeService {
   getAllUser(): Observable<any[]>{
     return this.http.get<any[]>(this.ApiUrl + "users");
   }
+
+  getUserById(Id:number): Observable<any[]>{
+    return this.http.get<any[]>(this.ApiUrl + "users");
+  }
+
+  getActivitiesFromUser(Id:number) : Observable<any[]>{
+    return this.http.get<any[]>(this.ApiUrl + "users");
+  }
+
+  getChats(){
+    
+  }
+
 }
