@@ -13,8 +13,10 @@ export class RegisterService {
       
   }
 
-  registerUser(formData: any[]){
-    return this.http.get<any[]>(this.ApiUrl + "users");
+  registerUser(formData: any[]): Observable<any>{
+     console.log("Data: " + formData);
+     return this.http.post(`${this.ApiUrl}users/create`, formData);
+     
   }
 
 

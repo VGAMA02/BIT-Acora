@@ -12,7 +12,8 @@ export class LoginService {
       
   }
 
-  LogUser(formData: any[]){
-    return this.http.get<any[]>(this.ApiUrl + "users");
+  loginUser(formData: any[]): Observable<any>{
+     console.log(formData);
+     return this.http.post(`${this.ApiUrl}users/login`, formData);
   }
 }
