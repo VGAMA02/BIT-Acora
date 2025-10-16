@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { CommonModule } from '@angular/common';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router';
+import { StorageService } from '../../core/services/storage.service';
 @Component({
   selector: 'app-login',
-  imports: [RouterLink,CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -14,7 +15,7 @@ import { LoginService } from './login.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder,  private service:LoginService){
+  constructor(private fb: FormBuilder,  private service:LoginService,private router: Router,private storage: StorageService){
       //crear data
       this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -24,15 +25,16 @@ export class LoginComponent {
 
   ///Llamar al service
   onSubmit() {
-const formData = this.loginForm.value;
+  const formData = this.loginForm.value;
 
   this.service.loginUser(formData).subscribe({
     next: (res) => {
       console.log('Respuesta del backend:', res);
-
-      // Guardar token en localStorage
-      localStorage.setItem('token', res.token);
-      alert('Inicio de sesión exitoso');
+      //console.log(res.user);
+      this.storage.setItem('id', res.user.id);
+      this.storage.setItem('token', res.token);
+      this.router.navigate(['/home']);
+      //alert('Inicio de sesión exitoso');
     },
     error: (err) => {
       console.error('Error:', err);

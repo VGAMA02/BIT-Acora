@@ -3,6 +3,8 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { HomeService } from './home.service';
 import { resolve } from 'path';
 import { rejects } from 'assert';
+import { Router } from '@angular/router';
+import { StorageService } from '../../core/services/storage.service';
 @Component({
   selector: 'app-home',
   imports: [HeaderComponent],
@@ -14,12 +16,12 @@ export class HomeComponent implements OnInit {
   
   users!: any[];
 
-  constructor(private service:HomeService){
+  constructor(private service:HomeService, private router:Router,private storage: StorageService){
       
   }
   async ngOnInit(): Promise<void> {
-      await this.getAllUser();
-      console.log(this.users);
+      //await this.getAllUser();
+      //console.log(this.users);  
   }
 
   getAllUser() : Promise<void>{

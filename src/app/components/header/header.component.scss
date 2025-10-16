@@ -21,6 +21,9 @@
     font-size: 1.4rem;
     padding-left: 15px;
 }
+.navbar-button{
+  cursor: pointer;
+}
 /* Cuando el menú está abierto */
 .navbar-toggler[aria-expanded="true"] {
     border-color: white;

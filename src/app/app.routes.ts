@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { LoginComponent } from './pages/login/login.component';
 import { SaveActivityComponent } from './pages/save-activity/save-activity.component';
+import { AuthGuard } from './core/guards/auth.guards';
 export const routes: Routes = [    {
         path:'',
         redirectTo:'home',
@@ -11,23 +10,30 @@ export const routes: Routes = [    {
     },
     {
         path:'home',
-        component: HomeComponent
+        canActivate: [AuthGuard],
+        loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent) //lazy carga solo cuando navegas a
     },
     {
         path:'calendar',
-        component: CalendarComponent
+        canActivate: [AuthGuard],
+        loadComponent: () => import('./pages/calendar/calendar.component').then(m => m.CalendarComponent)
+        //component: CalendarComponent  //carga al inicio en buffer
     },
     {
         path:'register',
-        component: RegisterComponent
+        loadComponent: () => import('./pages/register/register.component').then(m => m.RegisterComponent)
+        //component: RegisterComponent
     },
     {
         path:'login',
-        component: LoginComponent
+        loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent)
     },
     {
         path:'saveActivity/:date',
-        component: SaveActivityComponent
+        canActivate: [AuthGuard],
+        loadComponent: () => import('./pages/save-activity/save-activity.component').then(m => m.SaveActivityComponent)
+        
+        //component: SaveActivityComponent
     },
 
 
