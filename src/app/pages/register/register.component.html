@@ -1,0 +1,42 @@
+
+<div class="header--container">
+    <h2>Crear cuenta</h2>
+</div>
+
+<h3>Inserte sus datos</h3>
+<div class="card  form--container">  
+    
+    <form class="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input class="form-control" type="text" formControlName="name" name="name" placeholder="nombre" required/>
+        <input class="form-control" type="text" formControlName="lastName" name="lastName" placeholder="apellido" />
+        <input class="form-control" type="text" formControlName="email"  name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  required/>
+
+        <input class="form-control" type="password" formControlName="password"  name="password" placeholder="password" required />
+        <input class="form-control" type="date" id="birthDate" formControlName="birthDate" name="birthDate" required>
+        <div class="fielset-genero" >
+            <label class="radio-btn" >
+                <input type="radio" formControlName="gender"  name="gender" value="M" required>
+                <span class="btn-span">Hombre</span>
+            </label>
+
+            <label class="radio-btn">
+                <input type="radio" formControlName="gender" name="gender" value="F">
+                <span class="btn-span">Mujer</span>
+            </label>
+
+            <label class="radio-btn">
+                <input type="radio" formControlName="gender" name="gender" value="O">
+                <span class="btn-span">Otro</span>
+            </label>
+        </div>
+        <div class="buton--container">
+            <input  class="submitboton" type="submit" name="submit" value="registrarse" />
+        </div>
+        
+    </form>
+</div>
+
+<div class="register--section">
+    <p>Ya tienes cuenta?</p>
+    <a class="" routerLink="/login">Ir a login</a>
+</div>

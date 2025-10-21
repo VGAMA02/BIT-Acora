@@ -1,0 +1,36 @@
+
+
+<section>
+    <div class="title--container">
+        <h2>Registrar actividad</h2>
+    </div>
+   
+
+    <div class="card  form--container">  
+        <form class="" [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+            <label class="labelForm" for="name">Name</label>
+            <input class="form-control formInput" type="text" formControlName="name" name="name" placeholder="nombre" required />
+
+            <label class="labelForm" for="description">Descripcion</label>
+            <textarea formControlName="description" name="description" placeholder="Escriba aqui la descripcion de la actividad" class="form-control formInput"></textarea>
+
+            <label class="labelForm" for="nombre">Porcentaje de avance</label>
+            <input formControlName="progress" name="progress" class="form-control formInput" type="number" placeholder="Numero de porcentaje si es que tiene" required/>
+            
+            <label class="labelForm" for="nombre">Fecha de fin (si aplica)</label>
+            <input class="form-control formInput" type="date" id="fechafin" name="fechafin" required>
+
+            <div class="buton--container">
+                <input class="submitboton" type="submit" name="submit" value="Guardar" />
+            </div>
+        </form>
+        <div class="buton--container">
+            <button class="submitboton" (click)="regresar()">Regresar</button>
+        </div>
+    </div>
+</section>
+    <p>Fecha Inicio: {{ fechaInicio | date:'shortDate' }}</p>
+
+
+
+

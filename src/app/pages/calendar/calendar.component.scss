@@ -1,0 +1,42 @@
+.calendario--container{
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 320px; /* Dimension mas chica en celulares */
+    text-align: center;
+    flex-wrap: wrap; /* Opcional: permite que se acomode en móviles si no hay espacio */
+    margin: 0 auto;
+}
+    
+
+
+.calendario{
+    width: 90%;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 15px;
+    border: 1px solid rgb(131, 131, 131);
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0px 2px 0px 0px #000000;
+    margin-bottom: 120px;
+}
+::ng-deep .calendario .fc-toolbar-title{ //encanpsulacion del shadow DOM / ViewEncapsulation, para poder modificar se necesita el ::np-deep aplicar estilos para librerias externas, 
+    margin-left: 15px;
+}
+::ng-deep .calendario .fc-toolbar-chunk{
+    margin-right: 15px;
+    padding-top: 15px;
+}
+::ng-deep .calendario .fc-daygrid-day-frame{
+    cursor: pointer;
+   
+}
+::ng-deep .calendario .fc-daygrid-day-number{
+    color: rgb(20, 20, 20);
+}
+::ng-deep .fc .fc-daygrid {
+  border-radius: 15px;           /* esquinas redondeadas */
+  overflow: hidden;              /* para que no se vean los bordes de las celdas */
+}

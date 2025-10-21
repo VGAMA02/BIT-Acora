@@ -1,0 +1,20 @@
+
+<div class="header--container">
+    <h2>Inserte sus datos</h2>
+</div>
+
+
+<div class="card  form--container">  
+    <form class="" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input class="form-control" type="text" formControlName="email"  name="email" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+        <input class="form-control" type="password" formControlName="password"  name="password" placeholder="password" required/>
+        <div class="buton--container">
+            <input class="submitboton" type="submit" name="submit" value="Login" />
+        </div>
+    </form>
+</div>
+
+<div class="register--section">
+    <p>No tienes una cuenta?</p>
+    <a class="" routerLink="/register">Crear cuenta</a>
+</div>
