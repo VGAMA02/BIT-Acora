@@ -34,6 +34,7 @@ export class LoginComponent {
     next: (res) => {
       console.log('Respuesta del backend:', res);
       this.storage.setItem('id', res.user.id);
+      this.storage.setItem('name', res.user.name);
       this.storage.setItem('token', res.token);
       this.router.navigate(['/home']);
       //alert('Inicio de sesión exitoso');

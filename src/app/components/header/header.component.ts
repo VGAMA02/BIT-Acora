@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { StorageService } from '../../core/services/storage.service';
 @Component({
   selector: 'app-header',
   imports: [RouterLink],
@@ -7,7 +8,10 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
- constructor(private router: Router) {}
+  nameUser: string | null = null;
+ constructor(private router: Router,private storage: StorageService) {
+        this.nameUser = this.storage.getItem("name") || 'Usuario';
+ }
 
 
   onLogOut(){

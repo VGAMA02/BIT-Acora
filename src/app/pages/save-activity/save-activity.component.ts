@@ -22,9 +22,9 @@ export class SaveActivityComponent {
   constructor(private fb: FormBuilder, private service: SaveActivityService ,  private route: ActivatedRoute,private router: Router,private storeService:StorageService) {
       //crear data
       this.activityForm = this.fb.group({
-      fkUserId: [storeService.getItem("id")],
+      fkUserId: [Number(storeService.getItem("id"))],
       description: [null],
-      startDate: ["2025-10-20 15:28:18"],
+      startDate: [null],
       endDate: [null],
       progress: [0],
       name: ['', Validators.required]   
@@ -41,10 +41,12 @@ export class SaveActivityComponent {
   }
 
   onSubmit(){
+
     if (this.activityForm.valid) {
+      this.activityForm.value.startDate = this.fechaInicio + 'T' + this.activityForm.value.startDate
+      console.log(this.activityForm.value.startDate);
       const formData = this.activityForm.value;
       console.log('Datos del formulario:', formData);
-
       this.service.CreateActivity(formData).subscribe({
         next: (res) => {
           console.log("res: " + res)

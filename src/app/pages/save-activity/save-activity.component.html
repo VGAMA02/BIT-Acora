@@ -16,9 +16,13 @@
 
             <label class="labelForm" for="nombre">Porcentaje de avance</label>
             <input formControlName="progress" name="progress" class="form-control formInput" type="number" placeholder="Numero de porcentaje si es que tiene" required/>
+
+            <label class="labelForm" for="nombre">Hora</label>
+            <input class="form-control formInput" type="time" formControlName="startDate" id="startDate" required>
             
+
             <label class="labelForm" for="nombre">Fecha de fin (si aplica)</label>
-            <input class="form-control formInput" type="date" id="fechafin" name="fechafin" required>
+            <input class="form-control formInput" type="datetime-local" id="fechafin" formControlName="endDate" name="endDate" required>
 
             <div class="buton--container">
                 <input class="submitboton" type="submit" name="submit" value="Guardar" />

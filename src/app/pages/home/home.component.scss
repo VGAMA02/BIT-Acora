@@ -28,13 +28,20 @@
     max-height: 600px;
 }
 .tareas--article{
-    max-width: 400px;
+    max-width: 350px;
+    min-width: 350px;
     margin: 15px auto; 
     padding: 15px;
     background-color: var(--warm-black);
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.16);
    
+  }
+  .tareas--article-button{
+    align-self: center;
+    min-height: 20px;
+    min-width: 50%;
+    border-radius: 90px;
   }
 .avance--section-container{
     margin-top: 20px;

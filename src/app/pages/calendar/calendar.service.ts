@@ -5,24 +5,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class CalendarService {
 
   ApiUrl:string = "http://localhost:3001/api/";
 
   constructor(private http:HttpClient) { 
       
   }
-
-  
-  getAllUser(): Observable<any[]>{
-    return this.http.get<any[]>(this.ApiUrl + "users");
-  }
-
-  getUserById(Id:number): Observable<any[]>{
-    return this.http.get<any[]>(this.ApiUrl + "users");
-  }
-
-  getActivitiesFromUser(Id:number,limiter:number) : Observable<any>{
+  getActivitiesFromUser(Id:number,limiter?:number) : Observable<any>{
     const token = localStorage.getItem('token');
       console.log("token aut: " + token);
       const headers = new HttpHeaders({
@@ -33,5 +23,6 @@ export class HomeService {
      if (limiter) params.limiter = limiter;
      return this.http.get<any[]>(`${this.ApiUrl}activityByUId?id=${Id}&limiter=${limiter}`, { headers });
   }
+
 
 }

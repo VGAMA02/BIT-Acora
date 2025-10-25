@@ -3,15 +3,25 @@
 <section class="homestyles"> <!-- section en vez de body para eliminar problemas de hidratacion -->
 
     <section class="tareas--section-container">
-        <h2>Tus tareas mas recientes</h2>
+        <h2>Tus Actividades mas recientes</h2>
         <br>
         <section  class="tareas--section-boxes">
+
+            <article class="tareas--article card" *ngFor="let activity of activities">
+            <h3>{{ activity.name }}</h3>
+            <p>{{ activity.description?.slice(0, 30) }}</p>
+            <p>Progreso:  {{ activity.progress }} %</p>
+            <p>{{activity.startDate |  date:'shortDate'}}</p>
+            <button class="tareas--article-button"  (click)="CheckActivity(activity.id)">Revisar</button>
+            </article>
+
+
             <article class="tareas--article card">
                 <h3>Nombre de la tarea 1</h3>
                 <p> Pequeña descripcion de la tarea 1</p>
                 <img src="" alt="Avance de la tarea"> 
             </article>
-
+<!-- -->
             <article class="tareas--article card">
                 <h3>Nombre de la tarea 2</h3>
                 <p> Pequeña descripcion de la tarea 1</p>
