@@ -46,12 +46,16 @@ export class SaveActivityComponent {
       this.activityForm.value.startDate = this.fechaInicio + 'T' + this.activityForm.value.startDate
       console.log(this.activityForm.value.startDate);
       const formData = this.activityForm.value;
-      console.log('Datos del formulario:', formData);
+      console.log('Datos del formulario antes de envio:', formData);
       this.service.CreateActivity(formData).subscribe({
         next: (res) => {
           console.log("res: " + res)
+          this.router.navigate(['/calendar']);
         },
-        error: (err) => {console.error('Error al registrar:', err)}
+        error: (err) => {
+          console.error('Error al registrar:', err)
+          //this.activityForm.value.startDate = null;
+        }
       });
     } else {
       console.warn('Formulario inválido');

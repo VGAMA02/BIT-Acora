@@ -43,30 +43,37 @@ export class CalendarComponent {
   
  
 
-  getActivitiesFromUser() : Promise<void>{
-      return new Promise((resolve,reject) => {
-          let id = Number(this.storage.getItem("id"));
-          console.log(id);
-          this.service.getActivitiesFromUser(id,1000).subscribe({
-          next:(value) => {
-            this.activities = value.activities;
-            this.calendarOptions.events =this.activities.map(activity => ({
-            title: activity.name,
-            date: activity.startDate,
-            //meta: activity 
-            }));
-            console.log(this.activities);
-            resolve();
-          },
-          error: (err) => {
-            console.error("Data no encontrada");
-            reject();
-          },complete: () => {
-            
-          },
-        })
-      })
-  }
+getActivitiesFromUser(): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const id = Number(this.storage.getItem("id"));
+
+    this.service.getActivitiesFromUser(id, 1000).subscribe({
+      next: (value) => {
+        this.activities = value.activities;
+      this.calendarOptions.events = this.activities.map((activity: any) => {
+      const toLocalDateTime = (dateStr?: string): Date | undefined => {
+        if (!dateStr) return undefined; 
+        const d = new Date(dateStr);
+        return new Date(d.getTime() + d.getTimezoneOffset() * 60000); //60000 para ajustar a milisegundos, necesario para ajuste de hora
+      };
+      return {
+        title: activity.name,
+        start: toLocalDateTime(activity.startDate),
+        end: toLocalDateTime(activity.endDate),
+        meta: activity,
+      };
+    });
+
+        console.log("Eventos del calendario:", this.calendarOptions.events);
+        resolve();
+      },
+      error: (err) => {
+        console.error("Data no encontrada", err);
+        reject();
+      },
+    });
+  });
+}
 
   handleDateClick(arg:any) {
     this.router.navigate(['/saveActivity', arg.dateStr]);
